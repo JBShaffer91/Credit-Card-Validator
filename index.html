@@ -5,10 +5,30 @@
   <script src="js/scripts.js"></script>
   <link href="css/bootstrap.css" rel ="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="luhn_algorithm_test.js"></script>
 </head>
 <body>
-  
-
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <h1>Credit Card Validator</h1>
+  <form>
+    <label for="card-number">Credit Card Number:</label>
+    <input type="text" id="card-number" name="card-number">
+    <button type="submit" id="submit-button">Validate</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    const form = document.querySelector('form');
+    const submitButton = document.querySelector('#submit-button');
+    const result = document.querySelector('#result');
+    submitButton.addEventListener('click', () => {
+      const cardNumber = form.elements['card-number'].value;
+      if (luhnAlgorithm(cardNumber)) {
+        result.innerHTML = 'Valid credit card number';
+      } else {
+        result.innerHTML = 'Invalid credit card number';
+      }
+    });
+  </script>
 </body>
+</html>
+
 </html>
